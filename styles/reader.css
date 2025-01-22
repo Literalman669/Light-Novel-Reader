@@ -1,0 +1,332 @@
+/* Reader Layout */
+.reader-main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Novel Header */
+.novel-header {
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.novel-info {
+    display: flex;
+    gap: 2rem;
+}
+
+.novel-cover {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.novel-details {
+    flex-grow: 1;
+}
+
+.novel-details h1 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.novel-author {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.novel-status {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.novel-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    background-color: var(--bg-primary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.novel-description {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Chapter Navigation */
+.chapter-navigation {
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.chapter-select {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-button:not(:disabled):hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+/* Chapter Content */
+.chapter-content {
+    background-color: var(--bg-secondary);
+    padding: 3rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    min-height: 500px;
+    transition: opacity 0.3s ease;
+    position: relative;
+}
+
+.chapter-content.loading {
+    opacity: 0.6;
+}
+
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.chapter-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Touch Navigation Feedback */
+.touch-feedback {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.touch-feedback.left {
+    left: 1rem;
+}
+
+.touch-feedback.right {
+    right: 1rem;
+}
+
+.touch-feedback.active {
+    opacity: 0.8;
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 0.8; }
+    100% { opacity: 0; }
+}
+
+.chapter-text {
+    font-size: var(--reader-font-size, 1.1rem);
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.chapter-text p {
+    margin-bottom: 1.5rem;
+}
+
+.loading-message {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 2rem;
+}
+
+/* Reading Controls */
+.reading-controls {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-secondary);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -2px 5px var(--shadow-color);
+    z-index: 100;
+}
+
+.font-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-button {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.control-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+}
+
+.reading-progress {
+    flex-grow: 1;
+    height: 4px;
+    background-color: var(--border-color);
+    margin: 0 2rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--accent-color);
+    width: 0;
+    transition: width 0.3s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .novel-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .novel-cover {
+        width: 150px;
+        height: 225px;
+    }
+
+    .chapter-navigation {
+        flex-direction: column;
+    }
+
+    .nav-buttons {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .chapter-content {
+        padding: 1.5rem;
+    }
+
+    .reading-controls {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .reading-progress {
+        order: -1;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+/* Custom Scrollbar */
+.chapter-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) var(--bg-secondary);
+}
+
+.chapter-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chapter-content::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+.chapter-content::-webkit-scrollbar-thumb {
+    background-color: var(--accent-color);
+    border-radius: 4px;
+}
+
+/* Reading Settings */
+.font-size-1 { --reader-font-size: 1rem; }
+.font-size-2 { --reader-font-size: 1.1rem; }
+.font-size-3 { --reader-font-size: 1.2rem; }
+.font-size-4 { --reader-font-size: 1.3rem; }
+.font-size-5 { --reader-font-size: 1.4rem; }

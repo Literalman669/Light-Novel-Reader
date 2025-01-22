@@ -1,0 +1,28 @@
+{
+  "name": "light-novel-reader",
+  "version": "1.0.0",
+  "description": "A web application for reading and managing light novels",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Literalman669/Light-Novel-Reader.git"
+  },
+  "keywords": [
+    "light-novel",
+    "reader",
+    "web-app"
+  ],
+  "author": "Literalman669",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Literalman669/Light-Novel-Reader/issues"
+  },
+  "homepage": "https://literalman669.github.io/Light-Novel-Reader"
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading - Light Novel Reader</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/reader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Light Novel Reader</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link" id="loginBtn">Login</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search novels...">
+                <button id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-results"></div>
+        </div>
+    </header>
+
+    <main class="reader-main">
+        <div class="novel-header">
+            <div class="novel-info">
+                <img id="novelCover" src="https://via.placeholder.com/200x300?text=No+Cover" alt="Novel Cover" class="novel-cover">
+                <div class="novel-details">
+                    <h1 id="novelTitle">Loading...</h1>
+                    <p id="novelAuthor" class="novel-author">By: Loading...</p>
+                    <p id="novelStatus" class="novel-status">Status: Loading...</p>
+                    <div id="novelTags" class="novel-tags">
+                        <!-- Tags will be loaded here -->
+                    </div>
+                    <p id="novelDescription" class="novel-description">Loading...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chapter-navigation">
+            <select id="chapterSelect" class="chapter-select">
+                <option value="">Select Chapter</option>
+            </select>
+            <div class="nav-buttons">
+                <button id="prevChapter" class="nav-button" disabled>
+                    <i class="fas fa-chevron-left"></i> Previous
+                </button>
+                <button id="addBookmark" class="nav-button">
+                    <i class="far fa-bookmark"></i> Bookmark
+                </button>
+                <button id="nextChapter" class="nav-button" disabled>
+                    Next <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="chapterContent" class="chapter-content">
+            <div class="loading-message">
+                Select a chapter to begin reading...
+            </div>
+        </div>
+
+        <div class="reading-controls">
+            <div class="font-controls">
+                <button id="decreaseFont" class="control-button">A-</button>
+                <button id="increaseFont" class="control-button">A+</button>
+            </div>
+            <div class="reading-progress">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login/Register Modals (reused from index.html) -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="registerUsername" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+        </div>
+    </div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/reader.js"></script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Light Novel Reader</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Admin Panel</h1>
+            </div>
+            <div class="nav-links">
+                <a href="../index.html" class="nav-link">Back to Site</a>
+                <a href="#" class="nav-link" id="searchBtn"><i class="fas fa-search"></i></a>
+                <a href="#" class="nav-link" id="loginBtn">Loading...</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search novels...">
+                <button id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-results"></div>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="admin-sidebar">
+            <button class="admin-nav-btn active" data-panel="novels">
+                <i class="fas fa-book"></i> Novels
+            </button>
+            <button class="admin-nav-btn" data-panel="chapters">
+                <i class="fas fa-list"></i> Chapters
+            </button>
+        </div>
+
+        <div class="admin-content">
+            <!-- Novels Panel -->
+            <div class="admin-panel active" id="novelsPanel">
+                <div class="panel-header">
+                    <h2>Manage Novels</h2>
+                    <button id="addNovelBtn" class="primary-button">
+                        <i class="fas fa-plus"></i> Add New Novel
+                    </button>
+                </div>
+                <div class="novels-list" id="novelsList">
+                    <!-- Novels will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Chapters Panel -->
+            <div class="admin-panel" id="chaptersPanel">
+                <div class="panel-header">
+                    <h2>Manage Chapters</h2>
+                    <div class="chapter-controls">
+                        <select id="novelSelect">
+                            <option value="">Select Novel</option>
+                        </select>
+                        <button id="addChapterBtn" class="primary-button">
+                            <i class="fas fa-plus"></i> Add Chapter
+                        </button>
+                    </div>
+                </div>
+                <div class="chapters-list" id="chaptersList">
+                    <!-- Chapters will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Novel Modal -->
+    <div class="modal" id="novelModal">
+        <div class="modal-content large">
+            <span class="close-modal">&times;</span>
+            <h2 id="novelModalTitle">Add New Novel</h2>
+            <form id="novelForm">
+                <div class="form-group">
+                    <label for="novelTitle">Title</label>
+                    <input type="text" id="novelTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="novelAuthor">Author</label>
+                    <input type="text" id="novelAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label for="novelDescription">Description</label>
+                    <textarea id="novelDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="novelStatus">Status</label>
+                    <select id="novelStatus" required>
+                        <option value="ongoing">Ongoing</option>
+                        <option value="completed">Completed</option>
+                        <option value="hiatus">On Hiatus</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="novelCover">Cover Image URL</label>
+                    <input type="url" id="novelCover">
+                </div>
+                <div class="form-group">
+                    <label for="novelTags">Tags (comma separated)</label>
+                    <input type="text" id="novelTags" placeholder="action, adventure, fantasy">
+                </div>
+                <button type="submit" class="primary-button">Save Novel</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add/Edit Chapter Modal -->
+    <div class="modal" id="chapterModal">
+        <div class="modal-content large">
+            <span class="close-modal">&times;</span>
+            <h2 id="chapterModalTitle">Add New Chapter</h2>
+            <form id="chapterForm">
+                <div class="form-group">
+                    <label for="chapterTitle">Chapter Title</label>
+                    <input type="text" id="chapterTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="chapterNumber">Chapter Number</label>
+                    <input type="number" id="chapterNumber" required min="1" step="1">
+                </div>
+                <div class="form-group">
+                    <label for="chapterContent">Content</label>
+                    <textarea id="chapterContent" rows="15" required></textarea>
+                </div>
+                <button type="submit" class="primary-button">Save Chapter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="deleteModal">
+        <div class="modal-content">
+            <h2>Confirm Delete</h2>
+            <p id="deleteMessage"></p>
+            <div class="modal-actions">
+                <button class="secondary-button" id="cancelDelete">Cancel</button>
+                <button class="danger-button" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/auth.js"></script>
+    <script src="../scripts/main.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

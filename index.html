@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Novel Reader</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <h1>Light Novel Reader</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link" id="homeLink">Home</a>
+                <a href="#" class="nav-link" id="browseLink">Browse</a>
+                <a href="#" class="nav-link" id="searchBtn"><i class="fas fa-search"></i></a>
+                <a href="#" class="nav-link" id="loginBtn">Login</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search novels...">
+                <button id="closeSearch"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="search-results"></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="featured-novels">
+            <h2>Featured Novels</h2>
+            <div class="novel-grid" id="featuredNovels">
+                <!-- Novels will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <section class="latest-updates">
+            <h2>Latest Updates</h2>
+            <div class="novel-grid" id="latestUpdates">
+                <!-- Updates will be dynamically loaded here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="registerLink">Register</a></p>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <input type="text" id="registerUsername" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" placeholder="Password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Light Novel Reader. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
