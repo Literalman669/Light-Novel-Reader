@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE model SYSTEM "coredata.dtd">
+<model name="TaskModel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21711" systemVersion="22C65" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES">
+    <entity name="TaskEntity" representedClassName="TaskEntity" syncable="YES" codeGenerationType="manual">
+        <attribute name="createdAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="NO" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isCompleted" optional="NO" attributeType="Boolean" usesScalarValueType="YES" defaultValueString="0"/>
+        <attribute name="priorityRawValue" optional="NO" attributeType="String"/>
+        <attribute name="tags" optional="NO" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="NSArray"/>
+        <attribute name="title" optional="NO" attributeType="String"/>
+        <attribute name="updatedAt" optional="NO" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <elements>
+        <element name="TaskEntity" positionX="160" positionY="192" width="128" height="195"/>
+    </elements>
+</model>
